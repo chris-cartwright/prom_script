@@ -1,0 +1,40 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "14c280f00976031d95bdf68acdeb729d21251a39fd9d870ff6e9ef76f51a31a9"
+        },
+        "host-environment-markers": {
+            "implementation_name": "cpython",
+            "implementation_version": "3.5.2",
+            "os_name": "posix",
+            "platform_machine": "x86_64",
+            "platform_python_implementation": "CPython",
+            "platform_release": "4.4.0-43-Microsoft",
+            "platform_system": "Linux",
+            "platform_version": "#1-Microsoft Wed Dec 31 14:42:53 PST 2014",
+            "python_full_version": "3.5.2",
+            "python_version": "3.5",
+            "sys_platform": "linux"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.5"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "prometheus-client": {
+            "hashes": [
+                "sha256:0013d1ef25700dbfa2ea0c4fe799dd1fd72702d109467fd09a2eafa2d7e8f7e6"
+            ],
+            "version": "==0.0.21"
+        }
+    },
+    "develop": {}
+}
