@@ -8,8 +8,8 @@ from prometheus_client import Counter, Summary, Gauge, CollectorRegistry, push_t
 parser = argparse.ArgumentParser(description='Execute a command and send results to a Prometheus push gateway')
 parser.add_argument('host', help='Push gateway host including port')
 parser.add_argument('job', help='Job name to use')
-parser.add_argument('cmd', nargs='+', help='Command to run')
-args = parser.parse_args(sys.argv[1:])
+parser.add_argument('cmd', help='Command to run')
+args = parser.parse_known_args(sys.argv[1:])
 
 def quote(s: str) -> str:
     if ' ' in s:
@@ -19,7 +19,8 @@ def quote(s: str) -> str:
 
 async def runner_async() -> int:
     global args
-    cmd = ' '.join([quote(a) for a in args.cmd])
+    merged = [args[0].cmd] + args[1]
+    cmd = ' '.join([quote(a) for a in merged])
     p = await asyncio.create_subprocess_shell(cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
     stdout, stderr = await p.communicate()
     print(stdout.decode(), end='')
@@ -50,5 +51,5 @@ try:
 except Exception:
     traceback.print_exc()
 
-push_to_gateway(args.host, job=args.job, registry=registry)
+push_to_gateway(args[0].host, job=args[0].job, registry=registry)
 exit(res)
