@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "14c280f00976031d95bdf68acdeb729d21251a39fd9d870ff6e9ef76f51a31a9"
+            "sha256": "1ffa92e6be0dd54e56995393a65009b5dfef3d856d22b02b0054e87cbaa07bc4"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -29,11 +29,43 @@
         ]
     },
     "default": {
+        "altgraph": {
+            "hashes": [
+                "sha256:49dc134049903cc73fb76ca3cc9bef5b2b8c01c28732dd29594f99af2b449fc5",
+                "sha256:fc28b986a68fde8d3ff0e6d6ba3fbdd2cd562d11d45ef7c7735fbd826c9eec2e"
+            ],
+            "version": "==0.15"
+        },
+        "future": {
+            "hashes": [
+                "sha256:e39ced1ab767b5936646cedba8bcce582398233d6a627067d4c6a454c90cfedb"
+            ],
+            "version": "==0.16.0"
+        },
+        "macholib": {
+            "hashes": [
+                "sha256:7f76a7ef4f58f85889dec25fb532bad5acfd461c444738dfeb2e7bf855d5906b",
+                "sha256:9aeec52d7da59912b15445d08b08d95cee48414f01dd035be06f04a825973c08"
+            ],
+            "version": "==1.9"
+        },
+        "pefile": {
+            "hashes": [
+                "sha256:675c35ee0e1677db9e80d2f48d8a7ff2cf38e6207e8cd5e2a2c6d126db025854"
+            ],
+            "version": "==2017.11.5"
+        },
         "prometheus-client": {
             "hashes": [
                 "sha256:0013d1ef25700dbfa2ea0c4fe799dd1fd72702d109467fd09a2eafa2d7e8f7e6"
             ],
             "version": "==0.0.21"
+        },
+        "pyinstaller": {
+            "hashes": [
+                "sha256:b6c95cdbb45ac78a44723fa2992b58e14637cbefecafc22d3790af262a7fad6f"
+            ],
+            "version": "==3.3"
         }
     },
     "develop": {}
