@@ -52,4 +52,4 @@ except Exception:
     traceback.print_exc()
 
 push_to_gateway(args[0].host, job=args[0].job, registry=registry)
-exit(res)
+sys.exit(res)
