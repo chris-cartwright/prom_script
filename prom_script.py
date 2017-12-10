@@ -17,15 +17,26 @@ def quote(s: str) -> str:
 
     return s
 
+async def read_stream(stream: asyncio.StreamReader, cb):
+    while True:
+        line = await stream.readline()
+        if line:
+            cb(line)
+        else:
+            break
+
 async def runner_async() -> int:
     global args
     merged = [args[0].cmd] + args[1]
     cmd = ' '.join([quote(a) for a in merged])
     p = await asyncio.create_subprocess_shell(cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
-    stdout, stderr = await p.communicate()
-    print(stdout.decode(), end='')
-    print(stderr.decode(), end='', file=sys.stderr)
-    return p.returncode
+
+    await asyncio.wait([
+        read_stream(p.stdout, lambda x: print(x.decode(), end='')),
+        read_stream(p.stderr, lambda x: print(x.decode(), end='', file=sys.stderr))
+    ])
+
+    return await p.wait()
 
 registry = CollectorRegistry()
 
